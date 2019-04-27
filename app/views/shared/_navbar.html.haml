@@ -1,0 +1,18 @@
+%nav.navbar.navbar-expand-lg.navbar-light
+  .container
+    = link_to 'Icon', root_path, class: 'navbar-brand core-sprite hide-text'
+    %button.navbar-toggler{ type: :button,
+      data: { target: '#navbarSupportedContent' },
+      aria: { controls: :navbarSupportedContent, expanded: :false, label: 'Toggle navigation' } }
+      %span.navbar-toggler-icon
+
+    #navbarSupportedContent.collapse.navbar-collapse
+      %form.form-inline.my-2.my-lg-0.ml-md-auto
+        %input.form-control.mr-sm-2.text-center{ type: :search, placeholder: 'Search', aria: { label:'Search' } }
+      %ul.navbar-nav.ml-md-auto
+        %li.nav-item
+          %a.nav-link.core-sprite.explore-icon.hide-text{ href: '#' } Explore
+        %li.nav-item
+          %a.nav-link.core-sprite.notification-icon.hide-text{ href: '#' } Notification
+        %li.nav-item
+          %a.nav-link.core-sprite.profile-icon.hide-text{ href: '#' } Profile
