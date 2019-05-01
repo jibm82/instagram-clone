@@ -1,21 +1,49 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.container
+  .row
+    .col-lg-6.landing-left
+      .dummy-phone
+        .screen-shot
+          .carousel.carousel-fade{ data: { ride: :carousel } }
+            .carousel-inner
+              .carousel-item.active
+                = image_tag 'screenshot1.jpg', height: 427, width: 240
+              .carousel-item
+                = image_tag 'screenshot2.jpg', height: 427, width: 240
+              .carousel-item
+                = image_tag 'screenshot3.jpg', height: 427, width: 240
+              .carousel-item
+                = image_tag 'screenshot4.jpg', height: 427, width: 240
+              .carousel-item
+                = image_tag 'screenshot5.jpg', height: 427, width: 240
+    .col-lg-6.landing-right.text-center.d-flex.align-items-center
+      %div
+        .form-login.box
+          %h2.core-sprite.brand-name-img
+          %h5.light-color
+            %strong
+              Sign up to see photos and
+              %br
+              videos from your friends.
+          %hr
+
+          = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+            .form-group
+              = f.text_field :name, autofocus: true, placeholder: 'Your name', class: 'form-control'
+            .form-group
+              = f.email_field :email, autocomplete: 'email', placeholder: 'Email', class: 'form-control'
+            .form-group
+              = f.password_field :password, autocomplete: 'new-password', placeholder: 'Password', class: 'form-control'
+            .form-group
+              = f.password_field :password_confirmation, autocomplete: 'new-password', placeholder: 'Password confirmation', class: 'form-control'
+            %br
+            .form-group.actions
+              = f.submit "Sign up", class: 'btn btn-primary'
+
+            %br
+
+            %p.light-color
+              By signing up, you agree to our
+              %br
+              %strong Term &amp; Privacy Policy.
+
+        .redirect-links.box= render "devise/shared/links"
