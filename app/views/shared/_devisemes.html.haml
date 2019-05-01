@@ -1,0 +1,4 @@
+- if resource.errors.any?
+  %script
+    - resource.errors.full_messages.each do |value|
+      = "toastr.error(\"#{value}\")".html_safe

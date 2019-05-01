@@ -9,7 +9,11 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'shared/navbar' if user_signed_in?
-    %p.notice= notice
-    %p.alert= alert
     = yield
     = render 'shared/footer'
+
+    - if flash.any?
+      %script
+        - flash.each do |key, value|
+          - type = key.to_s.gsub('alert', 'error').gsub('notice', 'success')
+          = "toastr.#{type}('#{value}')".html_safe
