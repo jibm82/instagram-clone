@@ -1,17 +1,36 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.container
+  .row
+    .col-lg-6.landing-left
+      .dummy-phone
+        .screen-shot
+          .carousel.carousel-fade{ data: { ride: :carousel } }
+            .carousel-inner
+              .carousel-item.active
+                = image_tag 'screenshot1.jpg', height: 427, width: 240
+              .carousel-item
+                = image_tag 'screenshot2.jpg', height: 427, width: 240
+              .carousel-item
+                = image_tag 'screenshot3.jpg', height: 427, width: 240
+              .carousel-item
+                = image_tag 'screenshot4.jpg', height: 427, width: 240
+              .carousel-item
+                = image_tag 'screenshot5.jpg', height: 427, width: 240
+    .col-lg-6.landing-right.text-center.d-flex.align-items-center
+      %div
+        .form-login.box
+          %h3.core-sprite.brand-name-img
+
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .form-group
+              = f.email_field :email, autofocus: true, placeholder: 'Email', class: 'form-control'
+            .form-group
+              = f.password_field :password, autocomplete: :off, placeholder: 'Password', class: 'form-control'
+            - if devise_mapping.rememberable?
+              .form-check
+                = f.check_box :remember_me, class: 'form-check-input'
+                = f.label :remember_me, class: 'form-check-label'
+            %br
+            .form-group.actions
+              = f.submit "Log in", class: 'btn btn-primary'
+
+        .redirect-links.box= render "devise/shared/links"

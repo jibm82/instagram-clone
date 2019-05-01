@@ -48,6 +48,86 @@ body {
   height: 24px;
   width: 24px;
 }
+
 .nav-item:not(:first-child) {
   margin-left: 30px;
+}
+
+.box {
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 1px;
+  padding: 10px 0;
+  margin: 0 0 10px;
+}
+
+.brand-name-img {
+  background-position: 0 0;
+  height: 51px;
+  width: 175px;
+}
+
+.landing-left {
+  .dummy-phone {
+    background-image: image-url("dummy-phone-2x.png");
+    background-position: right 0;
+    background-repeat: no-repeat;
+    background-size: 454px 618px;
+    height: 648px;
+    margin-left: -35px;
+    margin-right: -15px;
+    position: relative;
+  }
+
+  .screen-shot {
+    position: absolute;
+    top: 99px;
+    right: 63px;
+
+    .item {
+      position: absolute;
+    }
+  }
+}
+
+.landing-right {
+  .form-login {
+    width: 350px;
+
+    form {
+      padding: 0 40px;
+
+      .btn-primary {
+        font-size: 14px;
+        font-weight: 600;
+        // margin-top: 15px;
+        line-height: 14px;
+        width: 100%;
+      }
+
+      input {
+        border: 1px solid #efefef;
+      }
+
+      .form-check-label {
+        color: #262626;
+        font-size: 15px;
+        padding: 0;
+      }
+    }
+
+    .brand-name-img {
+      margin: 22px auto 8px;
+    }
+  }
+
+  .redirect-links {
+    width: 350px;
+  }
+}
+
+footer .nav-item {
+  color: #003569 !important;
+  font-size: 12px;
+  font-weight: bold;
 }
