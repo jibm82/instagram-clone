@@ -1,0 +1,25 @@
+.row.justify-content-md-center.profile-wrapper
+  .col-md-4.text-center
+    = image_tag avatar_url(@user), width: '152', height: '152', class: 'round-img'
+  .col-md-8
+    .row
+      %p.username= @user.name
+      %button.btn.btn-outline-dark.common-btn.edit-profile-btn Edit Profile
+      %button.core-sprite.setting{ type: :button, data: { toggle: :modal, target: '#exampleModal' }}
+      -# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      -#   Launch demo modal
+      -# </button>
+
+      .modal.fade#exampleModal{ tabindex: -1, role: :dialog, aria: { labelledby: :exanpleModalLabel, hidden: true }}
+        .modal-dialog{ role: :document }
+          .modal-content
+            .modal-header
+              %h5.modal-title#exampleModalLabel Settings
+              %button.close{ type: :button, data: { dismiss: :modal }, aria: { label: 'Close'} }
+                %span{ aria: { hidden: true } } &times;
+            .list-group.text-center
+              %a.list-group-item.list-group-item-action{ href: '#' } Change Password
+              = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'list-group-item list-group-item-action'
+              %a.list-group-item.list-group-item-action{ href: '#', data: { dismiss: :modal } } Cancel
+    .row
+      %p.email= @user.email

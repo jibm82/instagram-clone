@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, path: '',
     path_names: { sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration' },
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # get '/users/:id', to: 'users#show'
+  resources :users, only: :show
 end
