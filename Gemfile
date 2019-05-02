@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+gem 'dotenv-rails', groups: %i(development test)
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -68,4 +70,6 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'omniauth', '~> 1.6'
+gem 'omniauth-twitter'
 gem 'toastr-rails'
