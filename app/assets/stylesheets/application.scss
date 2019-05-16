@@ -127,10 +127,14 @@ body {
   }
 }
 
-footer .nav-item {
-  color: #003569 !important;
-  font-size: 12px;
-  font-weight: bold;
+footer {
+  margin-top: 40px;
+
+  .nav-item {
+    color: #003569 !important;
+    font-size: 12px;
+    font-weight: bold;
+  }
 }
 
 .light-color {
@@ -200,4 +204,51 @@ footer .nav-item {
 
 .setting:hover {
   cursor: pointer;
+}
+
+.edit-profile-wrapper {
+  margin: 60px 0 0;
+
+  .left-col {
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    padding: 0;
+
+    .list-group-item {
+      border: none;
+      border-left: 2px solid transparent;
+      border-radius: 0;
+      color: #262626;
+      font-size: 16px;
+    }
+
+    .list-group-item:first-child {
+      border-left-color: #262626;
+      font-weight: bold;
+    }
+
+    .list-group-item:not(:first-child):hover {
+      border-left-color: #dbdbdb;
+    }
+  }
+
+  .right-col {
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    border-left: none;
+
+    .username-img {
+      margin: 32px 0;
+
+      .col-sm-9 {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 20px;
+      }
+    }
+
+    .form-group {
+      font-size: 16px;
+    }
+  }
 }
