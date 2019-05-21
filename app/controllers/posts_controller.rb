@@ -2,7 +2,7 @@
 
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_post, only: :show
+  before_action :find_post, only: %w(show destroy)
 
   def index
     @post  = Post.new
@@ -25,6 +25,20 @@ class PostsController < ApplicationController
 
   def show
     @photos = @post.photos
+  end
+
+  def destroy
+    if @post.user == current_user
+      if @post.destroy
+        flash[:notice] = 'Post deleted'
+      else
+        flash[:alert] = 'Something went wrong'
+      end
+    else
+      flash[:alert] = "You don't have permission to do that!"
+    end
+
+    redirect_to root_path
   end
 
   private
