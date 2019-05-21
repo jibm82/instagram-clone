@@ -2,20 +2,7 @@
   .row.post.box.col-xl-10.col-lg-11.col-12
     .col-lg-8.col-md-7.px-0.d-flex.post-show-img
       .align-self-center
-        - if @post.photos.size == 1
-          = image_tag @post.photos.first.image.url(:standard), class: 'card-img-top'
-        - else
-          .carousel.slide{ data: { ride: :carousel }, id: "carousel-post-#{@post.id}" }
-            .carousel-inner
-              - @post.photos.each do |photo|
-                .carousel-item{ class: "#{'active' if photo == @post.photos.first}"}
-                  = image_tag photo.image.url(:standard), class: 'card-img-top'
-            %a.carousel-control-prev{ href: "#carousel-post-#{@post.id}", role: :button, data: { slide: :prev } }
-              %span.carousel-control-prev-icon{ aria: { hidden: true } }
-              %span.sr-only Previous
-            %a.carousel-control-next{ href: "#carousel-post-#{@post.id}", role: :button, data: { slide: :next } }
-              %span.carousel-control-next-icon{ aria: { hidden: true } }
-              %span.sr-only Next
+        = render 'photos', post: @post
     .col-lg-4.col-md-5.mt-sm-4.mt-md-0
       .row.px-3.d-flex.align-items-center
         = link_to user_path(@post.user), class: 'no-text-decoration' do
@@ -44,12 +31,13 @@
       %hr.mt-0
 
       .row.actions
-        %a.core-sprite.love.hide-text Love
+        %div{ id: "like-icon-post-#{@post.id}" }= render 'like_icon', post: @post
         %a.core-sprite.comment.hide-text Comment
         %a.core-sprite.bookmark.hide-text.ml-auto Bookmark
-      %div
-        %strong= pluralize(16, 'like')
-      .light-color.post-time= "#{time_ago_in_words(@post.created_at).upcase} ago"
+
+      %div{ id: "like-text-post-#{@post.id}" }= render 'like_text', likes: @post.likes
+
+      .light-color.post-time= "#{time_ago_in_words(@post.created_at).upcase} AGO"
       %hr
       .row.actions
         %form{ action: '#', class: 'w-100' }

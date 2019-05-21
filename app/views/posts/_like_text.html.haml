@@ -1,0 +1,10 @@
+- if likes.any?
+  - if likes.size == 1 || likes.size > 3
+    %strong= likes.first.user.name
+    - if likes.size == 1
+      likes this
+    - else
+      and #{likes.size - 1} others like this
+  - else
+    %strong=likes.map { |like| like.user.name }.to_sentence
+    like this

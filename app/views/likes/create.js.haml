@@ -1,0 +1,2 @@
+$('#like-icon-post-#{@post.id}').html('#{escape_javascript(render 'posts/like_icon', post: @post)}')
+$('#like-text-post-#{@post.id}').html('#{escape_javascript(render 'posts/like_text', likes: @post.likes)}')

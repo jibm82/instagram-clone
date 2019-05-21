@@ -1,0 +1,4 @@
+- if post.liked_by?(current_user)
+  = link_to 'Loved', post_like_path(post), method: :delete, remote: true, class: 'core-sprite loved hide-text'
+- else
+  = link_to 'Love', post_like_path(post), method: :post, remote: true, class: 'core-sprite love hide-text'

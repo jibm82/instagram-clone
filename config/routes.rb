@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # get '/users/:id', to: 'users#show'
   resources :users, only: :show
   resources :posts, only: %w(index show create destroy) do
+    resource :like, only: %w(create destroy index show new edit update)
     resources :photos, only: :create
   end
 end
