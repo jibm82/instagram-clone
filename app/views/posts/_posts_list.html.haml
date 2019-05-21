@@ -32,7 +32,8 @@
         %span
           %strong= post.user.name
         %span= post.content
-      .light-color.post-time= "#{time_ago_in_words(post.created_at).upcase} ago"
+
+      = link_to "#{time_ago_in_words(post.created_at).upcase} AGO", post_path(post), class: 'light-color post-time no-text-decoration'
       %hr
       .row.actions
         %form{ action: '#', class: 'w-100' }
