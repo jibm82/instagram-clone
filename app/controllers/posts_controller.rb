@@ -6,15 +6,15 @@ class PostsController < ApplicationController
 
   def index
     @post  = Post.new
-    @posts = Post.all.limit(10).includes(:photos)
+    @posts = Post.all.limit(10).includes(:photos, :user).order('created_at desc')
   end
 
   def create
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      params[:images].each do |img|
-        @post.photos.create(image: img)
+      params[:images].each_pair do |key, _img|
+        @post.photos.create(image: params[:images][key])
       end
 
       redirect_to posts_path, notice: 'Saved...'
