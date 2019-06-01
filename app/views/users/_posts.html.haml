@@ -1,0 +1,10 @@
+- posts.each do |post|
+  .col-4
+    = link_to post_path(post) do
+      .post-stat.d-flex.justify-content-center.align-items-center
+        %span
+          %i.fa.fa-heart{ aria: { hidden: :true } }
+          = post.likes.size
+          %i.ml-3.fa.fa-comment{ aria: { hidden: :true } }
+          = post.comments.size
+      = image_tag post.photos.first.image.url(:standard), class: 'card-img-top image-preview'

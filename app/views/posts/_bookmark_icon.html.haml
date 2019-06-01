@@ -1,0 +1,4 @@
+- if post.bookmarked_by?(current_user)
+  = link_to 'Bookmarked', post_bookmark_path(post), method: :delete, remote: true, class: 'core-sprite bookmarked hide-text'
+- else
+  = link_to 'Bookmark', post_bookmark_path(post), method: :post, remote: true, class: 'core-sprite bookmark hide-text'

@@ -21,3 +21,17 @@
               %a.list-group-item.list-group-item-action{ href: '#', data: { dismiss: :modal } } Cancel
     .row
       %p.email= @user.email
+
+  .profile-tab
+    - if @user == current_user
+      %nav
+        #nav-tab.nav.nav-tabs.d-flex.justify-content-center{ role: :tablist }
+          %a#nav-post-tab.nav-item.nav-link.active{ aria: { controls: 'nav-post', selected: :true }, "data-toggle": :tab, href: "#nav-post", role: :tab } POSTS
+          %a#nav-saved-tab.nav-item.nav-link{ aria: { controls: 'nav-post', selected: :false }, "data-toggle": :tab, href: "#nav-saved", role: :tab } SAVED
+
+    #nav-tabContent.tab-content.pb-3
+      #nav-post.tab-pane.fade.show.active{"aria-labelledby": "nav-post-tab", role: "tabpanel"}
+        .row= render 'posts', posts: @posts
+      - if @user == current_user
+        #nav-saved.tab-pane.fade{"aria-labelledby": "nav-saved-tab", role: "tabpanel"}
+          .row= render 'posts', posts: @saved_posts

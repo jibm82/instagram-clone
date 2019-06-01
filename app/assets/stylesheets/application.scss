@@ -376,8 +376,12 @@ footer {
 
 .bookmark {
   @extend .love;
-  background-position: -150px -353px;
-  margin-left: 8px;
+  background-position: -150px -355px;
+}
+
+.bookmarked {
+  @extend .love;
+  background-position: -353px -273px;
 }
 
 .comment-list {
@@ -401,4 +405,49 @@ footer {
   background-position: -216px -112px;
   float: right;
   margin: 5px 0 0 10px;
+}
+
+.profile-tab {
+  margin-top: 60px;
+
+  .nav-tabs {
+    border: 0;
+    border-top: 1px solid #ddd;
+
+    .nav-item {
+      border-radius: 0;
+      border: 0;
+      border-top: 1px solid transparent;
+      margin-top: -1px;
+      padding: 10px 0;
+      background: transparent;
+      font-weight: bold;
+      color: #999;
+    }
+
+    .nav-item.active {
+      color: #262626;
+      border-top: 1px solid #262626;
+    }
+  }
+
+  .post-stat {
+    position: absolute;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    height: calc(100% - 30px);
+    width: calc(100% - 30px);
+    top: 0;
+    opacity: 0;
+  }
+
+  .col-4:hover .post-stat {
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+  }
+
+  .dz-image-preview {
+    margin-bottom: 30px;
+  }
 }

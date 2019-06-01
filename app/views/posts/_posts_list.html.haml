@@ -15,7 +15,7 @@
       .row.actions
         %div{ id: "like-icon-post-#{post.id}" }= render 'like_icon', post: post
         %a.core-sprite.comment.hide-text Comment
-        %a.core-sprite.bookmark.hide-text.ml-auto Bookmark
+        %div.ml-auto{ id: "bookmark-icon-post-#{post.id}" }= render 'bookmark_icon', post: post
 
       %div{ id: "like-text-post-#{post.id}" }= render 'like_text', likes: post.likes
 
