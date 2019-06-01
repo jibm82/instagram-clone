@@ -1,0 +1,1 @@
+$('#comment-post-#{@post.id}').html('#{escape_javascript(render 'posts/comment_list', post: @post)}')

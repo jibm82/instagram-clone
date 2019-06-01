@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resources :posts, only: %w(index show create destroy) do
     resource :like, only: %w(create destroy index show new edit update)
+    resources :comments, only: %w(index create destroy), shallow: true
     resources :photos, only: :create
   end
 end

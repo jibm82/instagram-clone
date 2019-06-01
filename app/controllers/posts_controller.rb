@@ -24,8 +24,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    @photos = @post.photos
-    @likes = @post.likes.includes(:user)
+    @comment = Comment.new
+    @likes   = @post.likes.includes(:user)
+    @photos  = @post.photos
   end
 
   def destroy

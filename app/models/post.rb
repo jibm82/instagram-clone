@@ -2,6 +2,7 @@
 
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :comments, -> { order(created_at: :desc) }
   has_many :likes, -> { order(created_at: :desc) }
   has_many :photos, dependent: :destroy
 

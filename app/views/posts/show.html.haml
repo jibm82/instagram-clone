@@ -22,11 +22,7 @@
               %strong= @post.user.name
             %span= @post.content
 
-        - 100.times do
-          %div
-            %span
-              %strong kuchajka
-            %span No helmets? Lol
+        %div{ id: "comment-post-#{@post.id}"}= render 'comment_list', post: @post
 
       %hr.mt-0
 
@@ -39,8 +35,6 @@
 
       .light-color.post-time= "#{time_ago_in_words(@post.created_at).upcase} AGO"
       %hr
-      .row.actions
-        %form{ action: '#', class: 'w-100' }
-          %div
-            %textarea.form-control.comment-input.border-0{ rows: 1, placeholder: 'Add a comment...' }
+      .row.actions{ id: "comment-form-post-#{@post.id}" }= render 'comment_form', post: @post
+
 

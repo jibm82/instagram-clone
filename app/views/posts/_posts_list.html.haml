@@ -24,9 +24,8 @@
           %strong= post.user.name
         %span= post.content
 
+      %div{ id: "comment-post-#{post.id}"}= render 'comment_list', post: post
+
       = link_to "#{time_ago_in_words(post.created_at).upcase} AGO", post_path(post), class: 'light-color post-time no-text-decoration'
       %hr
-      .row.actions
-        %form{ action: '#', class: 'w-100' }
-          %div
-            %textarea.form-control.comment-input.border-0{ rows: 1, placeholder: 'Add a comment...' }
+      .row.actions{ id: "comment-form-post-#{post.id}" }= render 'comment_form', post: post
