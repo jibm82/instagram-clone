@@ -1,0 +1,6 @@
+- if users.present?
+  - users.each do |user|
+    = link_to user_path(user), class: 'no-text-decoration normal-color' do
+      .search-result-item= user.name
+- else
+  .p-3 No results found.

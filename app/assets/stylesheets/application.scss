@@ -451,3 +451,18 @@ footer {
     margin-bottom: 30px;
   }
 }
+
+.search-resilt-item {
+  padding: 15px;
+
+  &:hover {
+    background-color: #fafafa;
+  }
+}
+
+.popover {
+  border-radius: 0px;
+}
+
+.popover-body {
+}

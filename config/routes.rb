@@ -7,11 +7,11 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations' }
 
   # get '/users/:id', to: 'users#show'
-  resources :users, only: :show
-  resources :posts, only: %w(index show create destroy) do
-    resource :like, only: %w(create destroy index show new edit update)
-    resource :bookmark, only: %w(create destroy)
-    resources :comments, only: %w(index create destroy), shallow: true
+  resources :users, only: %i(index show)
+  resources :posts, only: %i(index show create destroy) do
+    resource :like, only: %i(create destroy index show new edit update)
+    resource :bookmark, only: %i(create destroy)
+    resources :comments, only: %i(index create destroy), shallow: true
     resources :photos, only: :create
   end
 end

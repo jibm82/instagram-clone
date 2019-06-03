@@ -7,8 +7,11 @@
       %span.navbar-toggler-icon
 
     #navbarSupportedContent.collapse.navbar-collapse
-      %form.form-inline.my-2.my-lg-0.ml-md-auto
-        %input.form-control.mr-sm-2.text-center.common-btn{ type: :search, placeholder: 'Search', aria: { label:'Search' } }
+      = form_tag users_path, method: :get, remote: :true, class: 'form-inline my-2 my-lg-0 ml-md-auto', id: 'users-search' do
+        = text_field_tag :term, params[:term], class: 'form-control mr-sm-2 text-center common-btn',
+          placeholder: 'Search', autocomplete: :off
+        #users-result
+
       %ul.navbar-nav.ml-md-auto
         %li.nav-item
           %a.nav-link.core-sprite.explore-icon.hide-text{ href: '#' } Explore
