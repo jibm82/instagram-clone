@@ -18,3 +18,5 @@
           = f.submit 'Post', class: 'btn btn-primary'
 
     #posts= render 'posts_list'
+  %br
+  = will_paginate @posts
