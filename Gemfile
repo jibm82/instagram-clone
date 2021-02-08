@@ -67,7 +67,7 @@ gem 'tzinfo-data', platforms: %i(mingw mswin x64_mingw jruby)
 
 # Project gems
 gem 'bootstrap', '~> 4.3.1'
-gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+gem 'carrierwave', '~> 1.3'
 gem 'cloudinary'
 gem 'devise'
 gem 'dropzonejs-rails'
